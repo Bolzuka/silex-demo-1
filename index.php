@@ -13,32 +13,32 @@
   
   $app->get('/', function () use($app) {
     return $app['twig']->render('home.twig', array(
-      'content' => 'Добро пожаловать!',
+      'content' => 'Добро пожаловать!'
     ));  
   });
   
- $app->get('/add/{n1}/{n2}', function ($n1, $n2) use($app) {
-    return '<ins><h2>Сумма:</h2></ins><h3>'  .($n1 + $n2) . '</h3>'; 
+  $app->get('/add/{n1}/{n2}', function ($n1, $n2) use($app) {
+    return '<h2>Сумма: </h2><h3>' . ($n1 + $n2) . '</h3>'; 
   })->after($hdrs);
 
- $app->get('/mpy/{n1}/{n2}', function ($n1, $n2) use($app) {
-    return '<ins><h2>Произведение: </h2></ins><h3>' .($n1 * $n2) . '</h3>'; 
+  $app->get('/sub/{n1}/{n2}', function ($n1, $n2) use($app) {
+    return '<h2>Вычитание: </h2><h3>' . ($n1 - $n2) . '</h3>'; 
   })->after($hdrs);
 
- $app->get('/sub/{n1}/{n2}', function ($n1, $n2) use($app) {
-    return '<ins><h2>Вычитание:</h2></ins><h3>' .($n1 - $n2) . '</h3>'; 
+  $app->get('/div/{n1}/{n2}', function ($n1, $n2) use($app) {
+    return '<h2>Деление: </h2><h3>' . ($n1 / $n2) . '</h3>'; 
   })->after($hdrs);
 
- $app->get('/div/{n1}/{n2}', function ($n1, $n2) use($app) {
-    return '<ins><h2>Деление:</h2></ins><h3>' .($n1 / $n2) . '</h3>'; 
+  $app->get('/mul/{n1}/{n2}', function ($n1, $n2) use($app) {
+    return '<h2>Умножение: </h2><h3>' . ($n1 * $n2) . '</h3>'; 
   })->after($hdrs);
 
- $app->get('/pow/{n1}/{n2}', function ($n1, $n2) use($app) {
-    return '<ins><h2>Возведение в степень:</h2></ins><h3>' . ($n1 ** $n2) . '</h3>'; 
+  $app->get('/pow/{n1}/{n2}', function ($n1, $n2) use($app) {
+    return '<h2>Возведение в степень: </h2><h3>' . ($n1 ** $n2) . '</h3>'; 
   })->after($hdrs);
-
- $app->get('/author', function () use($app) {
-    return '<h4 id="author" title="GossJS">Шибаева Мария</h4>'; 
+  
+   $app->get('/author', function () use($app) {
+    return '<h4 id="author" title="GossJS">Мария Шибаева</h4>'; 
   })->after($hdrs);
 
   $app->error(function ($e) use($app) {
@@ -48,5 +48,4 @@
       return new Response($app['twig']->render('500.twig'), 500);
     };
   });
-
   $app->run();
