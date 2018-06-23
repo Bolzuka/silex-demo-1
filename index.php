@@ -38,7 +38,7 @@
   })->after($hdrs);
 
  $app->get('/author', function () use($app) {
-    return '<h4 id="author" title="GossJS">Скоробогатов Кирилл</h4>'; 
+    return '<h4 id="author" title="GossJS">Шибаева Мария</h4>'; 
   })->after($hdrs);
 
   $app->error(function ($e) use($app) {
