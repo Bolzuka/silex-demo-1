@@ -37,6 +37,10 @@
     return '<ins><h2>Возведение в степень:</h2></ins><h3>' . ($n1 ** $n2) . '</h3>'; 
   })->after($hdrs);
 
+ $app->get('/author', function () use($app) {
+    return '<h4 id="author" title="GossJS">Скоробогатов Кирилл</h4>'; 
+  })->after($hdrs);
+
   $app->error(function ($e) use($app) {
     if ($e instanceof Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
       return new Response($app['twig']->render('404.twig'), 404);
